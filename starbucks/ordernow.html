@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Order Now - Starbucks Coffee Company</title>
+    <style>
+     body{
+		 font-family: sans-serif;
+		 background-image: url("images/coffee.jpg");
+		 background-repeat: repeat; 
+	  }
+	  #Home{
+		margin: 0 auto;
+		text-align: center;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		background-color: #76bb82;
+		opacity:0.75;
+		border-radius: 10px;
+		width: 400px;
+		height: 350px;
+		padding: 30px;
+	  }
+      input[type=text] {
+		 width: 100%;
+		 padding: 12px 20px;
+		 margin: 8px 0;
+		 box-sizing: border-box;
+	  }
+	  .coffee
+	  {
+		  transition: 0.3s;
+	  }
+	  .coffee:hover{
+		  transform: scale(1.1);
+	  }
+    .btn
+    {
+      padding:5px; 
+      background-color: #76bb82; 
+      border-radius: 3px; 
+      color: #000000;
+      width: 80px;
+      height: 30px;
+      cursor: pointer;
+    }
+	  
+    </style>	  
+  </head>
+  <body>
+    <div id="Home">
+      <h1>Starbucks Coffee Company</h1>
+      <h2>Order Now</h2>
+      <img src="img/logo.svg" class="coffee" alt="coffee logo" width="200px" height="200px"/>
+      <form method="post">
+        <div style="margin-top:20px;">
+          Coffee Type:
+          <select> 
+            <option>Latte</option>
+            <option>Mocha</option> 
+            <option>Espresso</option> 
+            <option>Brewed</option> 
+          </select>
+        </div>
+        <div>
+          Quantity:
+          <input type="text" name="quant" placeholder="Quantity...">
+        </div>
+		<div>
+		  Cup Size:
+		  <select> 
+            <option>Small</option>
+            <option>Medium</option> 
+            <option>Large</option> 
+            <option>Extra-Large</option> 
+          </select>
+        </div>
+        <div style="margin-top:20px;">
+          <input type="submit" value="Order Now" class="btn" >
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

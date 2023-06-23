@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="joinnow.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Starbucks Coffee - Join Now!</title>
+    
+</head>
+<body>
+  <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="img/logo.svg" alt="Starbucks" />
+          </a>
+        </div>
+
+        <ul class="navbar-nav-left">
+          <li>
+            <a href="#">Menu</a>
+          </li>
+          <li>
+            <a href="#">Rewards</a>
+          </li>
+          <li>
+            <a href="#">Gift Cards</a>
+          </li>
+          <li>
+            <a href="about.html">About Us</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav-right">
+          <li>
+            <a href="https://www.starbucks.com/store-locator">
+              <img src="img/marker.png" alt="locator" />
+              <span>Find a store</span>
+            </a>
+          </li>
+          <li><a href="login.html" button class="btn btn-dark-outline">Sign in</a></button></li>
+          <li><a href="joinnow.html" button class="btn btn-dark-outline">Join now</a></button></li>
+        </ul>
+        </div>
+    </nav>
+    <div id="main">
+        <h1>JOIN US</h1>
+        <h2>Welcome to the Starbucks Coffee Family</h2>
+        <p>They allow you to benefit from the advantages of the company, such as make charges against it, making it liable for the obligations it contracts. We can look for options to make this possible and free ourselves from responsibility. What do you think?</p>
+    
+        <form>
+          <table>
+            <tr>
+              <td>Name:</td>
+              <td><input id="name" type="text" placeholder="Your Name"></td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><input id="email" type="text" placeholder="Your Email"></td>
+            </tr>
+            <tr>
+              <td>Phone:</td>
+              <td><input id="phone" type="text" placeholder="Your Phone"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input id="password" type="password" placeholder="Your Password"></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <!-- <input type="button" onclick="sendd()" value="Join Now" class="button" /> -->
+                <input type="submit" onclick="sendd()" class="btn" value="Join Now" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    
+      <script>
+       
+function sendd() {
+    //e.preventDefault();
+    // console.log('here')
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const password = document.getElementById("password").value;
+    const postData = {
+        name: name,
+        email: email,
+        phone: phone,
+        password:password
+    };
+
+    fetch('http://localhost:3000/joinNow', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Response from the API
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+}
+const otp = generateOTP();
+      // const otp = 54321 
+      client.messages
+      .create({
+        body: `Your OTP is: ${otp}`,
+        from: '+14066257292',
+        to: '+923135828354'
+      })
+      .then((message) => {
+        console.log('Message sent:', message.sid)
+      } )
+    
+      </script>
+      
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="social">
+            <a href="https://spotify.com">
+              <img src="./img/social-spotify.svg" alt="" />
+            </a>
+            <a href="https://facebook.com">
+              <img src="./img/social-facebook.svg" alt="" />
+            </a>
+            <a href="https://pinterest.com">
+              <img src="./img/social-pinterest.svg" alt="" />
+            </a>
+            <a href="https://instagram.com">
+              <img src="./img/social-instagram.svg" alt="" />
+            </a>
+            <a href="https://youtube.com">
+              <img src="./img/social-youtube.svg" alt="" />
+            </a>
+            <a href="https://twitter.com">
+              <img src="./img/social-twitter.svg" alt="" />
+            </a>
+          </div>
+          <p>© 2021 Starbucks Coffee Company. All rights reserved.</p>
+        </div>
+      </footer>
+</body>
+</html>

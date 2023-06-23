@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Sign In</title>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Welcome to Starbucks!</h1>
+        <form action="/starbucks/ordernow.html">
+            <input type="text" name="email" id="email" placeholder="Enter Email Address" required />
+            <input type="password" name="password" id="password" placeholder="Password" required />
+           
+            <input type="submit" onclick="sendd()" class="btn" value="Login" />
+       
+        </form>
+    </div>
+    <script>
+        function sendd() 
+        {
+    // console.log('here')
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const postData = {
+         email: email,
+         password:password
+    };
+
+    fetch('http://localhost:3000/loginNow', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Response from the API
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+}
+       </script>
+    </body>
+    </html>
